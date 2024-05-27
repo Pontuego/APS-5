@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/logo.jpg">
+    <title>Projeto APS</title>   
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html">Projeto</a>
+            </li>
+            <li>
+                <a href="sobre_nos.html">Sobre nós</a>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Sensor para monitoramento de deslizamentos</h1>
+        <picture class="center">
+            <img src="img/imagem-centro.jpg" alt="imagem-inicial">
+        </picture>
+        <h2>Proposta do projeto</h2>
+    </header>
+    <main>
+        <section>
+            <h3>Desenvolvimento</h3>
+            <p>O desenvolvimento teórico deste trabalho visa explorar os fundamentos técnicos e científicos que sustentam o projeto de monitoramento de deslizamentos na Serra da Cantareira de forma teórico, haja visto que o projeto em si deste trabalho foca no desenvolvimento e no treinamento da Inteligência Artificial para Machine Learning na identificação de deslizamentos. 
+                Este capítulo abordará a arquitetura do sistema de monitoramento utilizando múltiplos Arduinos distribuídos em toda região a ser monitorada, a utilização de sensores como método de captura de dados para análise, a comunicação entre os dispositivos e a central através do protocolo de comunicação LORA e seu gateway, e, por fim a aplicação de inteligência artificial no dispositivo central para análise e previsão de deslizamentos com os dados fornecidos através de Machine Learning. A combinação dessas tecnologias promete oferecer uma solução eficaz para a prevenção de desastres ambientais e a proteção de vidas humanas.</p>
+            <h3>Arquitetura do Sistema de Monitoramento</h3>
+            <p>A arquitetura do sistema de monitoramento proposto envolve a distribuição estratégica de Arduinos equipados, inicialmente, com acelerômetros pela Serra da Cantareira. Cada Arduino será conectado a um conjunto de acelerômetros e, como implementação futura, possivelmente, a sensores de umidade do solo e pluviômetros. Esses dispositivos serão posicionados com base em estudos geológicos prévios e mapeamento das áreas de maior risco de deslizamentos. Pontos críticos como encostas íngremes, áreas com histórico de deslizamentos e regiões com vegetação menos densa serão priorizados para início de monitoramento. A densidade de Arduinos por área dependerá da extensão do terreno e das especificidades locais, além do levantamento do investimento necessário, sendo proposto, inicialmente, a utilização de 2 a 3 módulos de captura de dados, garantindo uma cobertura suficiente para coleta e análise de dados.
+            Os Arduinos serão responsáveis pela coleta contínua de dados dos sensores e pela transmissão desses dados para uma central de monitoramento que fará a análise dos dados e acionará alarmes caso encontre anomalias. A comunicação entre os Arduinos e a central será realizada por meio de uma rede sem fio, utilizando a tecnologia LORA. Deste modo, o módulo Arduino ideal para o desenvolvimento do projeto é o Arduino MKR WAN 1310.</p>
+                <abbr title="Arduino-MKR WAN 1310"><img src="img/arduino-MKR.png" alt="arduino-MKR"></abbr>
+            <p>Este modelo foi escolhido devido as suas características, como: <br>
+                • Baixo consumo: projetado para operar com baixo consumo de energia, permitindo uma longa duração de bateria, o que é crucial para locais de difícil acesso; <br>
+                • Suporte nativo ao LORA: Possui um módulo LORA integrado, o qual fornece a comunicação necessária; <br>
+                • Capacidade de expansão: Possui diversas interfaces de entrada e saída, que o torna compatível com a utilização de diversos sensores simultaneamente, proporcionando melhorias futuras como a coleta de dados de sensores de umidade e pluviômetros.</p>
+            <h3>Monitoramento dos Dados de Movimentações de Terras</h3>
+            <p>Como meio de monitorar a movimentação de terras na Serra da Cantareira utilizando uma rede de sensores, a proposta do projeto é dar foco inicial em módulos acelerômetros. Um acelerômetro é um dispositivo que mede a aceleração, ou seja, a taxa de mudança da velocidade de um objeto, de forma mais didática, ele pode detectar mudanças na velocidade e na direção do movimento. 
+            <p>Eles são amplamente utilizados em várias aplicações, desde smartphones e veículos até sistemas de navegação marítima e espacial, bem como no monitoramento de estruturas. Os Acelerômetros são sensores altamente sensíveis capazes de medir a aceleração em uma ou mais direções, permitindo detectar movimentos e inclinações do solo. No contexto do monitoramento de deslizamentos, os acelerômetros são instalados em locais estratégicos para medir a aceleração do solo em três eixos (X, Y, Z) e detectar quaisquer movimentos ou inclinações que possam identificar mudanças sutis ou instabilidade do terreno que precedem os deslizamentos.</p> Esses sensores fornecerão dados em tempo real, permitindo o monitoramento contínuo e a identificação precoce de sinais de um potencial deslizamento. A precisão dos acelerômetros é crucial para identificar as mínimas alterações na estabilidade do terreno, facilitando a implementação de medidas preventivas.
+                Neste projeto foi escolhido para uso o acelerômetro MPU-6050. Trata-se de um sensor de seis eixos com giroscópio integrado compatível com o Arduino e pode fornecer dados precisos sobre a aceleração e a inclinação do terreno, atendendo todos os requisitos propostos, além de proporcionar um ótimo custo x benefício para o projeto.</p>
+                <abbr title="Acelerômetro e giroscópio MPU-6050"><img src="img/Acelerômetro e giroscópio MPU-6050.png" alt="Acelerômetro e giroscópio MPU-6050"></abbr>
+                <p>Para complementar os dados fornecidos pelo acelerômetro, e como desenvolvimento futuro, outros sensores podem ser integrados ao sistema, como é o caso dos sensores de umidade do solo e pluviômetros. Os sensores de umidade de solo têm como principal objetivo medir a quantidade de água presente no solo daquela região, enquanto os pluviômetros medem a precipitação de uma área específica provenientes de chuvas, os quais complementam e auxiliam na precisão dos dados para análise, haja visto que, segundo Lyyn e Peter (2008), solos saturados são mais propensos a deslizamentos. 
+                <p>O(s) sensor(es) é conectado ao Arduino MKR WAN 1310 através de seus pinos e seus correspondentes, como é o caso do acelerômetro através do pino I2C, SDA e SCL. Cada Arduino funcionará como um nó sensor na rede de monitoramento, processando os dados coletados de cada sensor e utilizará o módulo de transmissão LoRa, explicado a seguir, para transmitir essas informações para o gateway LoRa, caso necessário, ou diretamente para a central.</p> 
+            </p>
+                <h3>Protocolo e Estrutura de Comunicação</h3>
+                <p>A rede de comunicação é um dos principais pontos para o sucesso do sistema e do projeto, haja visto que o tempo e a confiabilidade da resposta da coleta e análise dos dados e acionamento de um aviso para a população é totalmente dependente da comunicação entre os sistemas propostos. A transmissão confiável de dados dos Arduinos para a central será estruturada de maneira a permitir tal resposta e confiabilidade.
+                </p> 
+                <p>A Serra da Cantareira possui uma área extensa e partes de seu terreno acidentados. A capacidade de uma rede transmitir dados a longas distâncias é crucial para garantir que os dados coletados por acelerômetros em diferentes pontos da Serra possam ser enviados para a central de monitoramento, sem a necessidade de múltiplos repetidores.
+                </p>
+                Em segundo lugar, os dispositivos de monitoramento serão distribuídos em áreas remotas e de difícil acesso, logo a eficiência energética torna-se um ponto chave para permitir que esses dispositivos funcionem por longos períodos com baterias, reduzindo a necessidade de manutenção frequente. E por último, por se tratar de um terreno com diversas árvores e formações rochosas, a integridade do sinal e uma comunicação confiável, mesmo em ambientes com esses tipos de obstáculos, é de extrema importância.
+                </p> 
+                <p>
+                Deste modo, a utilização do protocolo e sistema de comunicação LoRa é a escolha mais apropriada devido ao seu longo alcance, baixo consumo de energia, robustez e capacidade de penetração. A transmissão dentro de uma Serra pode ser afetada pelo seu terreno e obstáculos existentes, logo os gateways LoRa desempenham um papel importante. Esses gateways atuam como intermediários entre os dispositivos finais (arduinos com sensores) e a central de monitoramento.
+                </p> 
+                <p>
+                Eles recebem dados dos sensores distribuídos na Serra e retransmitem esses dados para um servidor central ou uma central de monitoramento. Embora os módulos LoRa possam transmitir dados a longas distâncias, a presença de obstáculos naturais e a topografia acidentada da Serra da Cantareira podem limitar o alcance direto da comunicação.
+                Gateways estrategicamente posicionados ajudam a superar esses obstáculos, garantindo que os dados dos sensores cheguem à central sem interrupções.
+                </p> 
+                <p>Eles podem, inclusive, agregar dados de vários dispositivos finais antes de retransmiti-los para a central. Deste modo, ajuda a reduzir a carga de transmissão e a gerenciar melhor a largura de banda disponível, especialmente em áreas com muitos sensores. Gateways LoRa geralmente têm capacidade para se conectar à internet via Ethernet, Wi-Fi ou redes móveis (3G/4G), permitindo que os dados coletados pelos sensores sejam enviados para servidores remotos ou serviços em nuvem, no caso deste projeto para análise dos dados e processamento adicional.
+                </p>
+                <p>Embora os Arduinos com módulos LoRa possam transmitir dados diretamente para a central de monitoramento com um alcance de até 15 km em condições ideais, segundos os dados técnicos do módulo LORA e seu padrão LoRaWAN, a utilização de gateways LoRa oferece vantagens significativas em termos de alcance, cobertura, gestão de dados e eficiência energética. Gateways garantem uma comunicação mais robusta e escalável, essencial para o sucesso do projeto de monitoramento de deslizamentos na Serra da Cantareira.
+                </p> 
+                <p>
+                Implementar uma rede com gateways LoRa assegura que todos os dados coletados sejam transmitidos de maneira confiável, mesmo em um ambiente geograficamente complexo. De modo geral, no contexto do projeto, todo o sistema de monitoramento será implementado utilizando módulos LoRa já existentes nos Arduinos para transmitir os dados dos acelerômetros e outros sensores para uma central de monitoramento através do padrão LoRaWAN. Cada nó sensor consistirá em um Arduino conectado a um módulo LoRa (já imbutido) e a sensores (acelerômetros, umidade do solo, pluviômetros).
+                </p> 
+                <p>Um gateway LoRa poderá ser posicionado em ponto centralizado para coletar os dados dos nós sensores e encaminhá-los para a central de monitoramento, caso seja necessário no teste do projeto físico. O gateway funcionará como ponto intermediário, agregando os dados e transmitindo-os através de uma rede de maior largura de banda, como Wi-Fi. Os dados recebidos pela central serão processados com inteligência artificial e Machine Learning previamente treinada para analisar os padrões e variações para prever deslizamentos.</p>
+                <abbr title="Shield LoRa 915Mhz para Arduino"><img src="img/Shield LoRa 915Mhz para Arduino.jpg" alt="Shield LoRa 915Mhz para Arduino"></abbr>
+        </section>
+    </main>
+</body>
+</html>
