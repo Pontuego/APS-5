@@ -1,4 +1,4 @@
-## Site de Monitoramento de Deslizamentos de Terra
+## Site de Conscientização sobre Monitoramento de Deslizamentos de Terra
 
 Este projeto é um site informativo sobre um sensor de deslizamentos de terra. O site fornece dados e informações detalhadas sobre como o sensor funciona, sua importância na prevenção de desastres e a tecnologia por trás dele.
 
